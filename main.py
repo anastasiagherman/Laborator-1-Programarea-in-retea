@@ -1,8 +1,8 @@
-from OpenThroughSocket import OpenThroughSocket
-from DownloadImages import DownloadImages
+from SocketConfiguration import SocketConfiguration
+from ImagesDownload import ImagesDownload
 
 
-def chooseOption(x):
+def selectOption(x):
     global host
     global port
     if x == 1:
@@ -15,7 +15,7 @@ def chooseOption(x):
         print("Non-existent option")
         global option
         option = int(input("Enter the number of option: \n"))
-        chooseOption(option)
+        selectOption(option)
 
 option = None
 host = ""
@@ -26,6 +26,6 @@ if __name__ == '__main__':
     print("2) utm.md    : 443")
     option = int(input("Enter the number of option: \n"))
 
-    chooseOption(option)
-    list_of_links = OpenThroughSocket(host, int(port)).getLinks()
-    DownloadImages(list_of_links, host, int(port)).startMultiThreadind()
+    selectOption(option)
+    list_of_links = SocketConfiguration(host, int(port)).getLinks()
+    ImagesDownload(list_of_links, host, int(port)).MultiThreadingFunction()

@@ -3,7 +3,7 @@ import re
 import ssl
 import io
 
-class OpenThroughSocket:
+class SocketConfiguration:
     def __init__(self, host, PORT):
         self.host = host
         self.PORT = PORT
@@ -47,7 +47,7 @@ class OpenThroughSocket:
             if self.PORT == 443:
                 urls = []
                 for line_in_file in x:
-                    results = re.findall(r'\/wp-content\/[^\"]*(?:png|jpg)', line_in_file)
+                    results = re.findall(r'[^\"]*(?:png|jpg)', line_in_file)
                     for y in results:
                         if 'https://' not in y:
                             y = 'https://utm.md' + y
@@ -71,7 +71,4 @@ class OpenThroughSocket:
                         links.append("http://me.utm.md/" + link)
                     self.links_to_images = links
 
-
-            # print(self.links_to_images)
-            # print(len(self.links_to_images))
             return self.links_to_images

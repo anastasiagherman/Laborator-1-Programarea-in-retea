@@ -7,7 +7,7 @@ import os
 
 sem = threading.Semaphore(2)
 
-class DownloadImages(Thread):
+class ImagesDownload(Thread):
     def __init__(self, IMAGESLIST, HOST, PORT):
         Thread.__init__(self)
         self.HOST = HOST
@@ -64,7 +64,7 @@ class DownloadImages(Thread):
             s.close()
         sem.release()
 
-    def startMultiThreadind(self):
+    def MultiThreadingFunction(self):
         thread_list = []
         self.divideList()
         t1 = Thread(target=self.downloadThroughSockets, args=(1, [self.array1],))
