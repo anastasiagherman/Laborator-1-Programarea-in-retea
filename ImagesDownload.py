@@ -55,7 +55,7 @@ class DownloadImages(Thread):
                 data = s.recv(1024)  # a citi cel mult 1024 de octeți,
                 if not data:
                     images = images.split(b"\r\n\r\n")  # imaprtim pe bucati
-                    image_path = "D:/Programare in Retea/PR/img/" + os.path.basename(p.path)
+                    image_path = "D:/Univer anul3/Semestrul2/Programarea in retea/PR/Lab1/img/" + os.path.basename(p.path)
                     with open(image_path, "wb") as fcont:
                         fcont.write(images[-1])
                     break

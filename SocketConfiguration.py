@@ -7,14 +7,11 @@ class OpenThroughSocket:
     def __init__(self, host, PORT):
         self.host = host
         self.PORT = PORT
-        self.dd = ""
+        self.dd = "" #html link
         self.links_to_images = []
 
     def getLinks(self):
-        """
-        :return:
-        data of site
-        """
+
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             sock.connect((self.host, self.PORT))
 # Socket utm.md : 443
@@ -42,7 +39,6 @@ class OpenThroughSocket:
         with io.open('D:/Programare in Retea/PR/Lab1/content.txt', "w", encoding="utf-8") as file:
             file.write(code_of_page)
         with io.open('D:/Programare in Retea/PR/Lab1/content.txt', 'r', encoding="utf-8") as file:
-            counter = 0
 
 # utm.md : 443
 
